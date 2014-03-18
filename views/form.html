@@ -1,0 +1,51 @@
+<div class="input-group">
+  <form onsubmit="" action="" id="signupform" style="display:inherit;">
+    <input type="email" id="email" value="" placeholder="E-mail address" name="EMAIL"
+           aria-label="Email address  Please enter a valid email address." pattern=".*@.*"
+           title="Please enter a valid email address."
+           class="required email form-control">
+    <span class="input-group-btn">
+      <input type="submit" class="button btn btn-default" value="Subscribe" name="subscribe">
+    </span>
+  </form>
+</div>
+<p class="response-text"></p>
+<script>
+  function postToDocs() {
+      var email = $('#email').val();
+      var responseSuccess = '{{_(doc.form_response_success)}}';
+      var responseFail = '{{_(doc.form_response_fail)}}';
+      $.ajax({
+          url: "https://docs.google.com/forms/d/{{_(doc.form_key)}}/formResponse",
+          data: {"{{_(doc.field_id)}}": email},
+          type: "POST",
+          dataType: "xml",
+          statusCode: {
+              0: function() {
+                // Success Message
+                $('.input-group').css({"display": "none"});
+                $('.response-text').html(responseSuccess);
+                $('.response-text').css({"display": "block"});
+              },
+              400: function() {
+                // Failure Message
+                $('.input-group').css({"display": "none"});
+                $('.response-text').html(responseFail);
+                $('.response-text').css({"display": "block"});
+              },
+              500: function() {
+                $('.input-group').css({"display": "none"});
+                $('.response-text').html(responseFail);
+                $('.response-text').css({"display": "block"});
+              }
+          }
+      });
+  }
+
+  $(document).ready(function(){
+    $('#signupform').submit(function() {
+      postToDocs();
+      return false;
+    });
+  });
+</script>

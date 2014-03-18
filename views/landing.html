@@ -1,0 +1,11 @@
+{% extends "/views/base.html" %}
+
+{% block main %}
+  <section class="flex-center">
+    <img src="{{_(doc.logo_img)}}" alt="" />
+    <div class="copy">
+      {{doc.html|safe}}
+    </div>
+    {% include '/views/form.html' %}
+  </section>
+{% endblock %}

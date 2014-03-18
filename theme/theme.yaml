@@ -1,0 +1,5 @@
+theme:
+  author: mmccoy
+  author_url: http://grow.io
+  description: A theme for a simple landing page with logo and "coming soon" blurb, and an email signup form.
+  title: Landing

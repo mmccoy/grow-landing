@@ -1,0 +1,32 @@
+@import url(../bootstrap.min.css);
+
+.flex-center {
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  height: 24em;
+  max-width: 700px;
+  text-align: center;
+
+  img {
+    max-width: 100%
+  }
+}
+
+.input-group {
+  width: 350px;
+  margin: auto;
+}
+
+.input-group-btn {
+  left: -1px;
+}
+
+.response-text {
+  margin: auto;
+  width: 450px;
+}
+
+.copy {
+  margin: 2em 0;
+}

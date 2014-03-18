@@ -1,0 +1,19 @@
+grow_version: 0.0.26
+title: Grow Landing Page
+description@: "My landing page.  Watch this space for the launch of our real site!"
+
+error_routes:
+  default: /views/404.html
+
+flags:
+  static_dir: /static/
+
+preprocessors:
+- kind: sass
+  sass_dir: /source/scss/
+  out_dir: /static/css/
+
+deployments:
+  default:
+    destination: local
+    out_dir: dist/
